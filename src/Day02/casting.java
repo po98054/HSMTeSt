@@ -21,6 +21,11 @@ public class casting {
 		float num5 = 1.234f;
 		
 		System.out.printf("%.2f", num5);
+		System.out.println();
+		
+		double num6 = 1.234;
+		
+		System.out.println(num6);
 	}
 
 }
