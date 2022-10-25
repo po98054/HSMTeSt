@@ -31,6 +31,10 @@ public class operator04 {
 		
 		System.out.println(max);
 		
+		boolean bo3 = num > num2 ? false : true;
+		
+		System.out.println(bo3);
+		
 	}
 
 }
