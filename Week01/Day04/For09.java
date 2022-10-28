@@ -10,16 +10,6 @@ public class For09 {
 		
 		Scanner sc = new Scanner(System.in);
 		
-		char ch = 'a';
-		
-		
-		
-		for(;ch != 'q';) {
-			
-			ch = sc.next().charAt(0);
-			
-		}
-		
 		sc.close();
 
 	}
