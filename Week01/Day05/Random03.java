@@ -1,12 +1,12 @@
 package Day05;
 
-import java.util.Scanner;
+//import java.util.Scanner;
 
 public class Random03 {
 
 	public static void main(String[] args) {
 		
-		Scanner sc = new Scanner(System.in);
+		/*Scanner sc = new Scanner(System.in);
 		
 		int count = 0;
 		
@@ -50,7 +50,7 @@ public class Random03 {
 			
 		}
 		sc.close();
-				
+			*/	
 	}
 
 }
