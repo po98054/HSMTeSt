@@ -16,16 +16,18 @@ public class Array04 {
 		
 		int num = sc.nextInt();
 		
-		for (int i = size-1; i <= 0; i--) {
+		for (int i = size-1; i >= 0; i--) {
 			
 			array[i] = num % 10;
 			num = num / 10;
+			
+		//	System.out.println(array[i]);
 			
 		}
 		
 		for (int i : array) {
 			
-			System.out.println(i);
+			System.out.print(i);
 			
 		}
 		
