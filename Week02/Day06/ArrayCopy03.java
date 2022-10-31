@@ -15,6 +15,9 @@ public class ArrayCopy03 {
 		int sum = 0;
 		int sum2 = 0;
 		int sum3 = 0;
+
+		double sum4[] = new double[array.length];
+		double avg4[] = new double[array.length];
 		
 		for(int i = 0; i < array.length; i++) {
 			
@@ -34,9 +37,14 @@ public class ArrayCopy03 {
 			sum2 = sum2 + array2[i];
 			sum3 = sum3 + array3[i];
 			
+			sum4[i] = array[i] + array2[i] + array3[i];
+			avg4[i] = sum4[i] / 3;
+			
 			System.out.println(i + "번 학생의 국어 성적 = " + array[i]);
 			System.out.println(i + "번 학생의 수학 성적 = " + array2[i]);
 			System.out.println(i + "번 학생의 영어 성적 = " + array3[i]);
+			System.out.println(i + "번 학생의 총 합계 = " + sum4[i]);
+			System.out.println(i + "번 학생의 평균 = " + avg4[i]);
 			
 		}
 		
@@ -51,6 +59,8 @@ public class ArrayCopy03 {
 		System.out.println(array[0] + " " + array[1] + " " + array[2] + " " + array[3] + " " + array[4]);
 		System.out.println(array2[0] + " " + array2[1] + " " + array2[2] + " " + array2[3] + " " + array2[4]);
 		System.out.println(array3[0] + " " + array3[1] + " " + array3[2] + " " + array3[3] + " " + array3[4]);
+		System.out.println(sum4[0] + " " + sum4[1] + " " + sum4[2] + " " + sum4[3] + " " + sum4[4]);
+		System.out.println(avg4[0] + " " + avg4[1] + " " + avg4[2] + " " + avg4[3] + " " + avg4[4]);
 		
 		double Avg = (double) sum / (double) 5;
 		double Avg2 = (double) sum2 / (double) 5;
