@@ -6,57 +6,60 @@ public class ArrayCopy07 {
 
 	public static void main(String[] args) {
 		
+		// Up Down 게임을 3회 반복해서 플레이 하고,
+		// 각 게임당 맞춘 횟수를 배열에 저장하여 출력하는 코드를 작성하세요.
+		
+		int coin = 3;
+		
+		int array[] = new int[coin];
+		
 		Scanner sc = new Scanner(System.in);
 		
-		int num = (int)(Math.random()*100);
-		
-		//System.out.println(num);
-		
-		int count = 0;
-		
-		int array[] = new int[3];
-		
-		for(int j = 0; j < array.length; j++) {
+		while(coin-- > 0) {
 			
-			for(int i = 1; i <= num; i++) {
-				
-				System.out.print("맞출 수를 입력하세요 : ");
-				
-				System.out.println(num);
-				
-				int input = sc.nextInt();
-				
+			int input = (int) (Math.random()*100);
+			
+			System.out.println(input);
+			
+			System.out.println("1 ~ 100 사이의 랜덤한 수를 맞추세요 !!");
+			
+			int num;
+			
+			int count = 0;
+			
+			do {
+				count++;
+				System.out.print("숫자 입력 : ");
+				num = sc.nextInt();
 				if (input > num ) {
 					
 					System.out.println(input + "가 " +"정답 보다 크다.");
-					count = count + 1;
 					
 				} else if (input < num) {
 					
 					System.out.println(input + "가 " + "정답 보다 작다.");
 					
-					count = count + 1;
-					
 				} else {
 					
-					count = count + 1;
 					System.out.println(input + "가 " + "정답이다.");
 					System.out.println("최종 입력 횟수 : " + count);
-					break;
+					array[array.length - coin - 1] = count;
 					
 				}
 				
-				if (count == 3) {
-					
-					array[j] = input;
-					System.out.println(array[j]);
-					
-				}
+			} while (input != num);
 			
 		}
-				
-	}
+		
+		for(int i = 0; i < array.length; i++) {
+			
+			System.out.println("array[" + i + "] = " + array[i]);
+			
+		}
+		
+		sc.close();
+		
 
-}
+	}
 	
 }
