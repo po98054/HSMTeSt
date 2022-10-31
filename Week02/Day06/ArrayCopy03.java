@@ -18,6 +18,8 @@ public class ArrayCopy03 {
 		
 		for(int i = 0; i < array.length; i++) {
 			
+			System.out.println("----------------------------------");
+			
 			System.out.print("당신의 국어, 수학, 영어 성적을 입력하세요 : ");
 			
 			int num = sc.nextInt();
@@ -36,11 +38,15 @@ public class ArrayCopy03 {
 			System.out.println(i + "번 학생의 수학 성적 = " + array2[i]);
 			System.out.println(i + "번 학생의 영어 성적 = " + array3[i]);
 			
-			System.out.println(sum);
-			System.out.println(sum2);
-			System.out.println(sum3);
-			
 		}
+		
+		System.out.println("----------------------------------");
+		
+		System.out.println("5명 학생의 총 국어 점수 = " + sum);
+		System.out.println("5명 학생의 총 수학 점수 = " + sum2);
+		System.out.println("5명 학생의 총 영어 점수 = " + sum3);
+		
+		System.out.println("----------------------------------");
 		
 		System.out.println(array[0] + " " + array[1] + " " + array[2] + " " + array[3] + " " + array[4]);
 		System.out.println(array2[0] + " " + array2[1] + " " + array2[2] + " " + array2[3] + " " + array2[4]);
@@ -49,6 +55,8 @@ public class ArrayCopy03 {
 		double Avg = (double) sum / (double) 5;
 		double Avg2 = (double) sum2 / (double) 5;
 		double Avg3 = (double) sum3 / (double) 5;
+		
+		System.out.println("----------------------------------");
 		
 		System.out.println("총 5명 학생의 국어 평균 성적 : " + Avg);
 		System.out.println("총 5명 학생의 수학 평균 성적 : " + Avg2);
