@@ -14,6 +14,18 @@ public class Method02 {
 		
 		sesu(num);
 		
+		System.out.println("=================");
+		
+		if (sesu2(num)) {
+			
+			System.out.println(num + "는 소수 입니다.");
+			
+		} else if (!sesu2(num)) {
+			
+			System.out.println(num + "는 소수 가 아닙니다..");
+			
+		}
+		
 		sc.close();
 		
 	}
@@ -37,6 +49,31 @@ public class Method02 {
 		} else {
 			
 			System.out.println(num + "는 소수가 아닙니다.");
+			
+		}
+		
+	}
+	
+	public static boolean sesu2(int num) {
+		
+		int count = 0;
+		
+		for (int i = 1; i <= num; i++) {
+			
+			if (num % i == 0) {
+				
+				count = count + 1;
+				
+			}
+			
+		} if (count == 2) {
+			
+			return true;
+			
+			
+		} else {
+			
+			return false;
 			
 		}
 		
