@@ -6,9 +6,11 @@ public class Class01 {
 		
 		Point pt = new Point();
 		
-		pt.printMa(20, 40);
+		pt.print();
 		
-		pt.move(1, 2);
+		Point pt1 = new Point(3,1);
+		
+		pt1.print();
 		
 	}
 	
@@ -18,12 +20,12 @@ public class Class01 {
 	
 	class Point {
 		
-		int x;
-		int y;
+		private int x;
+		private int y;
 		
-		public void printMa(int x, int y) {
+		public void print() {
 			
-			System.out.println(x + ", " + y);
+			System.out.println("좌표 : " + x + "," + y);
 			
 		}
 		
@@ -33,6 +35,27 @@ public class Class01 {
 			y = y + y1;
 			
 			System.out.println(x + ", " + y);
+			
+		}
+		
+		public Point() {
+			
+			x = 10;
+			y = 10;
+			
+		}
+		
+		public Point(int x1, int y1) {
+			
+			x = x1;
+			y = y1;
+			
+		}
+		
+		public Point(Point pt) {
+			
+			x = pt.x;
+			y = pt.y;
 			
 		}
 		
