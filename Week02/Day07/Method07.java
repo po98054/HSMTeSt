@@ -1,7 +1,5 @@
 package Day07;
 
-import java.util.Scanner;
-
 public class Method07 {
 	
 	public static void main(String[] args) {
