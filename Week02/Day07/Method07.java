@@ -30,7 +30,10 @@ public class Method07 {
 				
 				return true;
 				
-			}
+			
+		}
+			
+			System.out.println(array[i] + "과 " + num + "는 일치하지 않습니다.");
 			
 		}
 		
