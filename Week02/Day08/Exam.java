@@ -80,6 +80,8 @@ public class Exam {
 					
 					stri = stri + 1;
 					
+					continue;
+					
 				}else if(array[i] == array2[j]) {
 					
 					ball = ball + 1;
@@ -90,7 +92,9 @@ public class Exam {
 				}
 			}
 			
-			ball = ball - stri;
+			System.out.println(ball);
+			
+			//ball = ball - stri;
 			
 			System.out.println("최종 결과 = " + stri + "스트라이크 " + ball + "볼");
 				
