@@ -160,7 +160,7 @@ public class Exam03 {
 				
 			}
 			
-			if (stri == 3 || ball == 3) {
+			if (stri == 3) {
 				
 				System.out.println("정답입니다.");
 				
@@ -178,7 +178,7 @@ public class Exam03 {
 			
 			ball = ball - stri;
 			
-			
+			System.out.println(ball + "볼");
 			
 		//	System.out.println("최종 결과 : " + stri + " 스트라이크" + ball + " 볼");
 			
