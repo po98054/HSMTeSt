@@ -41,6 +41,12 @@ class KiaCar extends Car {
 		
 	}
 	
+	public void hand() {
+		
+		System.out.println("트렁크가 수동입니다.");
+		
+	}
+	
 }
 
 class HyundaiCar extends Car {
@@ -58,6 +64,12 @@ class HyundaiCar extends Car {
 		System.out.println("회사명 : " + super.name + " 차 종류 : " + kind + " 차 색깔 : " + super.color + " 차량 주인 : " + super.owner + " 차 넘버 : " + super.number);
 		
 	}	
+	
+	public void auto() {
+		
+		System.out.println("트렁크가 자동입니다.");
+		
+	}
 	
 }
 
@@ -126,6 +138,12 @@ class Car{
 			speed = 0;
 			
 		}
+		
+	}
+	
+	public void print() {
+		
+		System.out.println("속력 : " + speed);
 		
 	}
 	
