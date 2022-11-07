@@ -35,12 +35,6 @@ class KiaCar extends Car {
 	}
 	
 	
-	public void print() {
-		
-		System.out.println("회사명 : " + super.name + " 차 종류 : " + kind + " 차 색깔 : " + super.color + " 차량 주인 : " + super.owner + " 차 넘버 : " + super.number);
-		
-	}
-	
 	public void hand() {
 		
 		System.out.println("트렁크가 수동입니다.");
@@ -53,17 +47,13 @@ class HyundaiCar extends Car {
 	
 	String kind = "SM-5";
 	
+	
+	
 	HyundaiCar(String name, String color, String owner, int number, int speed, int tireCount) {
 		
 		super(name, color, owner, number, speed, tireCount);
 		
 	}
-	
-	public void print() {
-		
-		System.out.println("회사명 : " + super.name + " 차 종류 : " + kind + " 차 색깔 : " + super.color + " 차량 주인 : " + super.owner + " 차 넘버 : " + super.number);
-		
-	}	
 	
 	public void auto() {
 		
@@ -144,6 +134,13 @@ class Car{
 	public void print() {
 		
 		System.out.println("속력 : " + speed);
+		System.out.println("타이어 : " + tireCount);
+		
+		for(int i = 0; i < tires.length; i++) {
+			
+			System.out.println("tires[" + i + "] = " + tires[i]);
+			
+		}
 		
 	}
 	
