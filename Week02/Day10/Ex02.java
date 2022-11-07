@@ -157,12 +157,6 @@ public class Ex02 {
 			
 			PlayerInfo p = new PlayerInfo(com);
 			
-			int record[] = new int[3];
-			
-			int tryCount = 0;
-			
-			int index = 0;
-			
 			for(int i = 0; p.getStrike() != 3; i++) {
 					
 					int user[] = insertGame();
@@ -172,7 +166,7 @@ public class Ex02 {
 					p.printResult();
 					
 				}
-				
+			
 			break;
 			
 		case 2 :
@@ -187,9 +181,9 @@ public class Ex02 {
 
 		case 3 :
 
-			System.out.println("프로그램을 종료합니다.");
+			/*System.out.println("프로그램을 종료합니다.");
 			
-			break;
+			break;*/
 		
 		}
 		
