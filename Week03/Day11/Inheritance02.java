@@ -16,6 +16,8 @@ public class Inheritance02 {
 			
 		}
 		
+		kia.print();
+		
 		HyundaiCar hyundai = new HyundaiCar("Hyundai","노랑","유재석",456,10,4);
 		
 		hyundai.print();
@@ -135,12 +137,6 @@ class Car{
 		
 		System.out.println("속력 : " + speed);
 		System.out.println("타이어 : " + tireCount);
-		
-		for(int i = 0; i < tires.length; i++) {
-			
-			System.out.println("tires[" + i + "] = " + tires[i]);
-			
-		}
 		
 	}
 	
