@@ -137,6 +137,7 @@ class Car{
 		
 		System.out.println("속력 : " + speed);
 		System.out.println("타이어 : " + tireCount);
+		System.out.println("이름 : " + owner);
 		
 	}
 	
