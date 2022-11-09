@@ -15,6 +15,12 @@ public class Score {
 	private int perfor;
 	
 	private double total;
+	
+	private double midRate = 0.4;
+	
+	private double finalRate = 0.5;
+	
+	private double performanceRate = 0.1;
 
 	// 메소드 : equals() <= 성적 추가시 활용 toString <= 성적 출력시 활용 getter/setter
 	
@@ -92,6 +98,42 @@ public class Score {
 		
 	}
 	
+	public double getMidRate() {
+		
+		return midRate;
+		
+	}
+
+	public void setMidRate(double midRate) {
+		
+		this.midRate = midRate;
+		
+	}
+
+	public double getFinalRate() {
+		
+		return finalRate;
+		
+	}
+
+	public void setFinalRate(double finalRate) {
+		
+		this.finalRate = finalRate;
+		
+	}
+
+	public double getPerformanceRate() {
+		
+		return performanceRate;
+		
+	}
+
+	public void setPerformanceRate(double performanceRate) {
+		
+		this.performanceRate = performanceRate;
+		
+	}
+	
 	// equals
 
 	@Override
@@ -154,6 +196,8 @@ public class Score {
 		this.fin = fin;
 		
 		this.perfor = perfor;
+		
+		this.total = (midRate * middle) + (fin * finalRate) + (perfor * performanceRate);
 		
 	}
 	
