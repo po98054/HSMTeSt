@@ -21,15 +21,17 @@ public class List02 {
 		
 		list.add(8);
 		
-		System.out.println(list);
+		/*System.out.println(list);
 		
 		System.out.println("5가 있나요 ? " + list.contains(5));
 		
 		System.out.println("5가 어디에 있나요 ? " + list.indexOf(5));
 		
-		System.out.println("1번지에 있는 값 : " + list.get(1));
+		System.out.println("1번지에 있는 값 : " + list.get(1));*/
 		
 		Iterator<Integer> it = list.iterator();
+		
+		//System.out.println(list.iterator());
 		
 		while(it.hasNext()) {
 			
@@ -39,7 +41,7 @@ public class List02 {
 			
 		}
 		
-		System.out.println();
+		//System.out.println();
 		
 	}
 
