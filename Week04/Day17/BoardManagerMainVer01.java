@@ -1,11 +1,6 @@
 package Day17;
 
-import java.text.SimpleDateFormat;
-
 import java.util.ArrayList;
-
-import java.util.Date;
-
 import java.util.Scanner;
 
 public class BoardManagerMainVer01 {
@@ -34,13 +29,13 @@ public class BoardManagerMainVer01 {
 			
 			// 3. 각각 기능에 맞는 메소드를 만든다.
 	
-	private static Scanner sc = new Scanner(System.in);
+	public static Scanner sc = new Scanner(System.in);
 	
 	public static void main(String[] args) {
 		
-		ArrayList<BoardVer01> list = new ArrayList<BoardVer01>();
-		
 		int menu = -1;
+		
+		ArrayList<BoardVer01> list = new ArrayList<BoardVer01>();
 		
 		do {
 			
@@ -52,52 +47,118 @@ public class BoardManagerMainVer01 {
 			
 			case 1 :
 				
-				insertBoard(list);
+				sc.nextLine();
+				
+				// 콘솔에서 입력받아 게시글 생성
+				
+				BoardVer01 insertTemp = inputBoard();
+				
+				// 게시글을 목록에 추가
+				
+				insertBoard(list, insertTemp);
 				
 				break;
 				
 			case 2 :
 				
-				BoardVer01 searchtemp = searchBoard(list);
+				printSubMenu();
 				
-				System.out.println("검색한 회원 정보는 : " + searchtemp);
+				// 서브 메뉴 선택
 				
+				int subMenu = sc.nextInt();
+				
+				// 서브 메뉴에 따른 기능 실행
+				
+				runSubBoard(list, subMenu);
+					
 				break;
-				
+					
 			case 3 :
 				
-				System.out.println("수정하는 메소드입니다.");
+				System.out.println("------------------------");
+				
+				// 게시글 번호 입력
+				
+				System.out.print("수정할 게시글 번호 : ");
+				
+				int num = sc.nextInt();
+				
+				// 게시글 번호와 일치하는 게시글을 가져와서 일치하는 게시글이 있으면 제목, 내용을 입력받고
+				
+				int index = list.indexOf(new BoardVer01(num));
+				
+				if(index == -1) {
+					
+					printStr("일치하는 게시글이 없습니다. ");
+					
+					continue;
+					
+				}
+				
+				BoardVer01 temp = list.get(index);
+				
+				System.out.println("------------------------");
+				
+				sc.nextLine();
+				
+				System.out.print("제목 : ");
+				
+				String title = sc.nextLine();
+				
+				System.out.print("내용 : ");
+				
+				String content = sc.nextLine();
+				
+				// 입력 받은 제목, 내용으로 게시글 수정
+				
+				temp.update(title, content);
 				
 				break;
 				
 			case 4 :
 				
-				System.out.println("삭제하는 메소드입니다.");
+				System.out.println("------------------------");
+				
+				// 게시글 번호 입력
+				
+				System.out.print("삭제할 게시글 번호 : ");
+				
+				int num2 = sc.nextInt();
+				
+				// 게시글 번호에 맞는 게시글 객체를 생성하여 삭제 (= 게시글 번호를 이용하여 게시글 객체를 생성하여 삭제)
+				
+				if(list.remove(new BoardVer01(num2))) {
+					
+					printStr("게시글이 삭제되었습니다. " );
+					
+				} else {
+					
+					printStr("일치하는 게시글이 없습니다. ");
+					
+				}
 				
 				break;
 				
 			case 5 :
 				
-				System.out.println("시스템을 종료합니다.");
+				printStr("프로그램을 종료합니다.");
 				
 				break;
 				
 			default :
 				
-				System.out.println("잘못된 메뉴를 입력했습니다.");
-				
-				break;
+				printStr("메뉴를 잘못 입력했습니다.");
 			
+				break;
 			}
 			
 		} while (menu != 5);
 		
-
 	}
-
-	private static void printMenu() {
+	
+	public static void printMenu() {
 		
-		System.out.println("--------메뉴-----------");
+		System.out.println("---------메뉴-------------");
 		
 		System.out.println("1. 게시글 작성");
 		
@@ -109,82 +170,152 @@ public class BoardManagerMainVer01 {
 		
 		System.out.println("5. 프로그램 종료");
 		
-		System.out.println("---------------------");
+		System.out.println("------------------------");
+		
+		System.out.print("메뉴를 입력하세요 : ");
+		
+	}
+	
+	public static void printSubMenu() {
+		
+		// 서브 메뉴 출력
+		
+		System.out.println("------------------------");
+		
+		System.out.println("-------조회 메뉴--------------");
+		
+		System.out.println("1. 전체 조회 ");
+		
+		System.out.println("2. 상세 조회 ");
+		
+		System.out.println("------------------------");
 		
 		System.out.print("메뉴 선택 : ");
 		
 	}
 	
-	public static boolean insertBoard(ArrayList<BoardVer01> list) {
+	public static void printStr(String str) {
 		
-		Date date = new Date();
+		System.out.println("------------------------");
 		
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy년 MM월 dd일 hh시 mm분 ss초");
+		System.out.println(str);
 		
-		System.out.println("---------------------");
-		
-		System.out.println("게시글을 입력하세요");
-		
-		System.out.println("---------------------");
-		
-		System.out.print("제목 입력 : ");
-		
-		String title = sc.next();
-		
-		//sc.nextLine();
-		
-		System.out.print("내용 입력 : ");
-		
-		String content = sc.next();
-		
-		System.out.print("작성자 입력 : ");
-		
-		String writer = sc.next();
-		
-		String createDate = sdf.format(date);
-		
-		BoardVer01 member = new BoardVer01(title, content, writer, createDate);
-		
-		list.add(member);
-		
-		System.out.println(list.toString());
-		
-		return true;
+		System.out.println("------------------------");
 		
 	}
 	
-	public static BoardVer01 searchBoard(ArrayList<BoardVer01> list) {
+	public static void insertBoard(ArrayList<BoardVer01> list, BoardVer01 board) {
 		
-		Scanner sc = new Scanner(System.in);
+		// 0번지에 추가하는 이유는 나중에 등록된 게시글이 위로 가게 하기 위해서임.
 		
-		System.out.println("---------------------");
+		list.add(0, board);
+		
+		printStr("게시글이 등록되었습니다");
+		
+	}
+	
+	public static BoardVer01 inputBoard() {
+		
+		// 게시글 정보를 입력 (제목, 내용, 작성자)
+		
+		System.out.println("------------------------");
 		
 		System.out.print("제목 : ");
 		
-		String title = sc.next();
+		String title = sc.nextLine();
 		
-		BoardVer01 member = new BoardVer01(title);
+		System.out.print("내용 : ");
 		
-		// 회원 리스트에서 아이디가 같은 회원 정보를 가져옴 => 가져온 회원 정보의 비밀번호와 입력한 비밀번호를 비교하여 일치하면 회원 정보를 보여주지만 다르면 종료한다.
+		String content = sc.nextLine();
 		
-		int index = list.indexOf(member);
+		System.out.print("작성자 : ");
+		
+		String writer = sc.next();
+		
+		// 목록에 게시글 추가
+		
+		// 게시글 객체 생성 => 목록에 추가
+		
+		return new BoardVer01(title, content, writer);
+		
+	}
+	
+	public static void printAll(ArrayList<BoardVer01> list) {
+		
+		if(list == null || list.size() == 0) {
+			
+			printStr("등록된 게시글이 없습니다. ");
+			
+			return;
+			
+		}
+		
+		// 전체 조회
+		
+		System.out.println("------------------------");
+		
+		for(BoardVer01 temp : list) {
+			
+			System.out.println(temp);
+			
+		}
+		
+	}
+	
+	public static void printDetail(ArrayList<BoardVer01> list, int num) {
+		
+		int index = list.indexOf(new BoardVer01(num));
 		
 		if(index == -1) {
 			
-			return null;
+			System.out.println("------------------------");
 			
-		} 
-		
-		BoardVer01 temp = list.get(index);
-		
-		if(!temp.getTitle().equals(member.getTitle())) {
+			printStr("없는 게시글 번호입니다.");
 			
-			return null;
+			return;
 			
-		} 
+		}
 		
-		return temp;
+		// 게시글 조회수 증가
+		
+		list.get(index).updateView();
+		
+		// 게시글 출력
+		
+		System.out.println(list.get(index).print());
 		
 	}
-
+	
+	public static void runSubBoard(ArrayList<BoardVer01> list, int subMenu) {
+		
+		switch(subMenu) {
+		
+		case 1 :
+			
+			printAll(list);
+			
+			break;
+			
+		case 2 :
+			
+			// 상세 조회
+			
+			System.out.println("------------------------");
+			
+			// 번호 입력
+			
+			System.out.print("게시글 번호 : ");
+			
+			int num = sc.nextInt();
+			
+			System.out.println("------------------------");
+			
+			// 해당 번호와 맞는 게시글 조회
+			
+			printDetail(list, num);
+			
+	}
+		
+}
+	
 }
