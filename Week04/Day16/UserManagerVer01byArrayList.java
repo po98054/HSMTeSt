@@ -1,6 +1,7 @@
 package Day16;
 
 import java.util.ArrayList;
+
 import java.util.Scanner;
 
 public class UserManagerVer01byArrayList {
