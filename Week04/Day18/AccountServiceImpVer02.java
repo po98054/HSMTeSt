@@ -154,11 +154,23 @@ public class AccountServiceImpVer02 implements AccountServiceVer02{
 			
 			System.out.println("-------------------------");
 			
-			for(ItemVer02 temp : list) {
-				
-				temp.print();
-				
-			}
+			System.out.println("-----------조회 메뉴---------");
+			
+			System.out.println("1. 전체 조회");
+			
+			System.out.println("2. 년 조회");
+			
+			System.out.println("3. 월 조회");
+			
+			System.out.println("4. 일 조회");
+			
+			System.out.println("----------------------------");
+			
+			System.out.print("메뉴 선택 : ");
+			
+			// 서브 메뉴 선택
+			
+			// 메뉴에 따른 출력 기능 실행
 			
 			break;
 			
