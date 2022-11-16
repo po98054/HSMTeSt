@@ -6,7 +6,7 @@ public class Regex02 {
 	
 	public static void main(String[] args) {
 		
-		String regex = "^[a-z0-9_-]{5,20}$";
+		String regex = "^[a-z0-9_\\-]{5,20}$";
 		
 		Scanner sc = new Scanner(System.in);
 		
