@@ -75,5 +75,12 @@ public class ItemVer02 {
 		System.out.println("-------------------------");
 		
 	}
+	
+	@Override
+	public String toString() {
+		
+		return "구분(수입/지출) : " + type + " " + "분류(식비/교통비 등) : " + purpose + " " + "내용 : " + content + " " + "금액 : " + getMoneyStr() + "원 " + "일시 : " + getDateStr();
+		
+	}
 
 }

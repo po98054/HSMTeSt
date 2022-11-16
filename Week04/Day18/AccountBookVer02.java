@@ -44,9 +44,13 @@ public class AccountBookVer02 {
 				
 				sc.nextLine();
 				
+			} catch(RuntimeException e) {
+				
+				System.out.println("-------------------------");
+				
+				System.out.println(e.getMessage());
+				
 			}
-			
-			
 			
 		} while (menu != 5);
 		

@@ -1,7 +1,9 @@
 package Day18;
 
 import java.text.ParseException;
+
 import java.text.SimpleDateFormat;
+
 import java.util.ArrayList;
 
 import java.util.Collections;
@@ -82,7 +84,19 @@ public class AccountServiceImpVer02 implements AccountServiceVer02{
 	@Override
 	public void printItem(ArrayList<ItemVer02> list) {
 		
+		if(list.size() == 0) {
+			
+			System.out.println("기록된 내역이 없습니다. ");
+			
+			return;
+			
+		}
 		
+		for(ItemVer02 item : list) {
+			
+			System.out.println(item);
+			
+		}
 		
 	}
 
@@ -152,25 +166,11 @@ public class AccountServiceImpVer02 implements AccountServiceVer02{
 			
 		case 2 :
 			
-			System.out.println("-------------------------");
+			printSubMenu();
 			
-			System.out.println("-----------조회 메뉴---------");
-			
-			System.out.println("1. 전체 조회");
-			
-			System.out.println("2. 년 조회");
-			
-			System.out.println("3. 월 조회");
-			
-			System.out.println("4. 일 조회");
-			
-			System.out.println("----------------------------");
-			
-			System.out.print("메뉴 선택 : ");
-			
-			// 서브 메뉴 선택
-			
-			// 메뉴에 따른 출력 기능 실행
+		    int subMenu = sc.nextInt();
+		    
+		    runPrint(subMenu, sc, list);
 			
 			break;
 			
@@ -291,6 +291,164 @@ public class AccountServiceImpVer02 implements AccountServiceVer02{
 		System.out.println("-------------------------");
 		
 		return date;
+		
+	}
+
+	@Override
+	public void printItem(ArrayList<ItemVer02> list, int... dates) {
+		
+		String date = "";
+		
+		for(int temp : dates) {
+			
+			date += "-" +  (temp < 10 ? "0" + temp : temp);
+			
+		}
+		
+		if(date.length() < 5) {
+			
+			throw new RuntimeException("예외 발생 : 년도를 잘못 입력했습니다. ");
+			
+		}
+		
+		date = date.substring(1);
+		
+		int size = date.length();
+		
+		System.out.println("----------------------------");
+		
+		for(ItemVer02 item : list) {
+			
+			if(item.getDateStr().substring(0, size).equals(date)) {
+				
+				System.out.println(item);
+				
+			}
+			
+		}
+		
+	}
+
+	@Override
+	public int inputYear(Scanner sc) {
+		
+		System.out.print("연도 입력 : ");
+		
+		int year = sc.nextInt();
+		
+		if(year < 0) {
+			
+			throw new RuntimeException("예외 발생 : 연도를 잘못 입력했습니다. ");
+			
+		}
+		
+		return year;
+		
+	}
+
+	@Override
+	public int inputMonth(Scanner sc) {
+		
+		System.out.print("월 입력 : ");
+		
+		int month = sc.nextInt();
+		
+		if(month < 0 || month > 12) {
+			
+			throw new RuntimeException("예외 발생 : 월을 잘못 입력했습니다. ");
+			
+		}
+		
+		return month;
+		
+	}
+
+	@Override
+	public int inputDay(Scanner sc) {
+		
+		System.out.print("일 입력 : ");
+		
+		int day = sc.nextInt();
+		
+		if(day < 0 || day > 31) {
+			
+			throw new RuntimeException("예외 발생 : 일을 잘못 입력했습니다. ");
+			
+		}
+		
+		return day;
+		
+	}
+
+	@Override
+	public void printSubMenu() {
+		
+		System.out.println("-------------------------");
+		
+		System.out.println("-----------조회 메뉴---------");
+		
+		System.out.println("1. 전체 조회");
+		
+		System.out.println("2. 년별 조회");
+		
+		System.out.println("3. 월 조회");
+		
+		System.out.println("4. 일 조회");
+		
+		System.out.println("----------------------------");
+		
+		System.out.print("메뉴 선택 : ");
+		
+	}
+
+	@Override
+	public void runPrint(int subMenu, Scanner sc, ArrayList<ItemVer02> list) {
+		
+		// 메뉴에 따른 출력 기능 실행
+		
+		switch(subMenu) {
+		
+		case 1 :
+			
+			System.out.println("----------------------------");
+			
+			printItem(list);
+			
+			break;
+			
+		case 2 :
+			
+			System.out.println("----------------------------");
+			
+			printItem(list, inputYear(sc));
+			
+			break;
+			
+		case 3 :
+			
+			System.out.println("----------------------------");
+			
+			printItem(list, inputYear(sc), inputMonth(sc));
+
+			break;
+
+		case 4 :
+			
+			System.out.println("----------------------------");
+			
+			printItem(list, inputYear(sc), inputMonth(sc), inputDay(sc));
+
+			break;
+			
+		default :
+			
+			System.out.println("----------------------------");
+			
+			System.out.println("메뉴를 잘 못 입력했습니다.");
+			
+			break;
+		
+		}
 		
 	}
 	
