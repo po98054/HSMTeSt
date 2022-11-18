@@ -16,6 +16,10 @@ public class Map03 {
 		
 		map.put("address" , "서울시");
 		
+		map.put("User", 45);
+		
+		map.put("age", 34);
+		
 		System.out.println("map에서 User에 해당 되는 값 : " + map.get("User"));
 		
 		System.out.println("map에서 age에 해당 되는 값 : " + map.get("age"));
@@ -23,6 +27,7 @@ public class Map03 {
 		System.out.println("map에서 address에 해당 되는 값 : " + map.get("address"));
 		
 		System.out.println("map에서 123에 해당 되는 값 : " + map.get("123"));
+		
 		
 	}
 	
