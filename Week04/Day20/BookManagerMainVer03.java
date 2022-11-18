@@ -1,7 +1,7 @@
 package Day20;
 
 import java.util.ArrayList;
-
+import java.util.Collections;
 import java.util.Scanner;
 import java.util.function.Predicate;
 
@@ -309,7 +309,11 @@ public class BookManagerMainVer03 {
 			
 		}
 		
-		return list.add(book);
+		list.add(book);
+		
+		Collections.sort(list, (o1, o2) -> o1.getIsbn().compareTo(o2.getIsbn()));
+		
+		return true;
 		
 	}
 	
