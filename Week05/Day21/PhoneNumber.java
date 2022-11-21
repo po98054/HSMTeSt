@@ -38,7 +38,15 @@ public class PhoneNumber {
 	@Override
 	public String toString() {
 		
-		return " 이름(집, 직장) : " + pName + " " + " 번호 (예 : 010-2345-5678) : " + number;
+		return "이름(집, 직장) : " + pName + " " + " 번호 (예 : 010-2345-5678) : " + number;
+		
+	}
+
+	public void update(String pName, String number) {
+		
+		this.pName = pName;
+		
+		this.number = number;
 		
 	}
 	

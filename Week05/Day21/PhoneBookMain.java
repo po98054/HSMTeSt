@@ -20,9 +20,19 @@ public class PhoneBookMain {
 			
 			printmenu();
 			
+			try {
+			
 			menu = sc.nextInt();
 			
 			runMenu(menu, list);
+			
+			} catch(RuntimeException e) {
+				
+				System.out.println("-------------------");
+				
+				System.out.println(e.getMessage());
+				
+			}
 			
 		} while(menu != 5);
 		
@@ -80,7 +90,7 @@ public class PhoneBookMain {
 			
 			System.out.println("-------------------");
 			
-		/*	if(updatePhoneBook()) {
+			if(updatePhoneBook(list)) {
 				
 				System.out.println("-------------------");
 				
@@ -96,7 +106,7 @@ public class PhoneBookMain {
 				
 				System.out.println("-------------------");
 				
-			}*/
+			}
 			
 			break;
 			
@@ -128,7 +138,7 @@ public class PhoneBookMain {
 			
 			System.out.println("-------------------");
 			
-			System.out.println("조회하는 기능");
+			printsearchPhone(list);
 			
 			break;
 			
@@ -190,6 +200,8 @@ public class PhoneBookMain {
 	
 	private static PhoneNumber inputPhoneNumber() {
 		
+		System.out.println("-------------------");
+		
 		System.out.print("이름 (집, 직장 등) : ");
 		
 		String pName = sc.nextLine();
@@ -220,9 +232,144 @@ public class PhoneBookMain {
 			
 			System.out.print("더 입력하겠습니까? (y/n) : ");
 			
+			
 		} while(sc.nextLine().charAt(0) != 'n');
 		
 		return pnlist;
+		
+	}
+	
+	private static boolean updatePhoneBook(ArrayList<PhoneBook> list) {
+		
+		sc.nextLine();
+		
+		System.out.print("이름 : ");
+		
+		String name = sc.nextLine();
+		
+		ArrayList<Integer> indexs = searchPhoneBook(list, (p) -> p.getName().contains(name));
+		
+		System.out.println("-------------------");
+		
+		printIndexsNumber(list, indexs);
+		
+		System.out.println("-------------------");
+		
+		System.out.print("수정할 번호를 입력하세요 : ");
+		
+		int selectIndex = sc.nextInt() - 1;
+		
+		if(selectIndex < 0 || selectIndex > indexs.size()) {
+			
+			throw new RuntimeException("예외 발생 : 잘못 선택했습니다.");
+			
+		}
+		
+			printSubMenu();
+			
+			int subMenu = sc.nextInt();
+			
+			int index = indexs.get(selectIndex);
+		
+			return runSubMenu(subMenu, list.get(index));
+		
+	}
+	
+	private static void printSubMenu() {
+		
+		System.out.println("----------수정 메뉴-----------------");
+		
+		System.out.println("1. 이름, 직장명 수정");
+		
+		System.out.println("2. 기존 전화번호 수정");
+		
+		System.out.println("3. 새 전화번호 추가");
+		
+		System.out.println("--------------------------------");
+		
+		System.out.print("수정 메뉴를 선택 하세요. : ");
+		
+	}
+	
+	private static boolean runSubMenu(int subMenu, PhoneBook pb) {
+		
+		if(pb == null) {
+			
+			return false;
+			
+		}
+		
+		switch(subMenu) {
+		
+		case 1 :
+			
+			System.out.println("-------------------");
+			
+			sc.nextLine();
+			
+			System.out.print("성명 : ");
+			
+			String name = sc.nextLine();
+			
+			System.out.print("직장명 : ");
+			
+			String company = sc.nextLine();
+			
+			pb.update(name, company);
+			
+			break;
+			
+		case 2 :
+			
+			System.out.println("-------------------");
+			
+			pb.printPhoneNumbers();
+			
+			System.out.println("-------------------");
+			
+			System.out.print("번호 입력 : ");
+			
+			int index = sc.nextInt() - 1;
+			
+			System.out.println("-------------------");
+			
+			sc.nextLine();
+			
+			System.out.print("이름 입력 : ");
+			
+			String pName = sc.nextLine();
+			
+			System.out.print("전화 번호 입력 : ");
+			
+			String number = sc.nextLine();
+			
+			pb.getPnlist().get(index).update(pName,number);
+			
+			break;
+			
+		case 3 :
+			
+			System.out.println("-------------------");
+			
+			sc.nextLine();
+			
+			ArrayList<PhoneNumber> pnlist = inputPhoneNumbers();
+			
+			pb.getPnlist().addAll(pnlist);
+			
+			break;
+			
+		default :
+			
+			System.out.println("-------------------");
+			
+			System.out.println("수정 메뉴를 잘못 입력했습니다.");
+			
+			return false;
+		
+		}
+		
+		return true;
 		
 	}
 	
@@ -238,19 +385,7 @@ public class PhoneBookMain {
 		
 		System.out.println("-------------------");
 		
-		if(indexs == null || indexs.size() == 0) {
-			
-			return false;
-			
-		}
-		
-		for(int i = 0; i < indexs.size(); i++) {
-			
-			int index = indexs.get(i);
-			
-			System.out.println((i + 1) + ". " + list.get(index));
-			
-		}
+		printIndexsNumber(list, indexs);
 		
 		System.out.println("-------------------");
 		
@@ -287,5 +422,56 @@ public class PhoneBookMain {
 		return indexs;
 		
 	}
-
+	
+	private static void printsearchPhone(ArrayList<PhoneBook> list) {
+		
+		sc.nextLine();
+		
+		System.out.print("이름 : ");
+		
+		String name = sc.nextLine();
+		
+		ArrayList<Integer> indexs = searchPhoneBook(list, (p) -> p.getName().contains(name));
+		
+		System.out.println("-------------------");
+		
+		printIndexsNumber(list, indexs);
+		
+		System.out.println("-------------------");
+		
+		System.out.print("조회할 번호를 입력하세요 : ");
+		
+		int selectIndex = sc.nextInt() - 1;
+		
+		if(selectIndex < 0 || selectIndex > indexs.size()) {
+			
+			return;
+			
+		}
+		
+		System.out.println("-------------------");
+		
+		list.get(selectIndex).print();
+		
+		return;
+		
+	}
+	
+	private static void printIndexsNumber(ArrayList<PhoneBook> list, ArrayList<Integer> indexs) {
+		
+		if(indexs == null || indexs.size() == 0 || list == null || list.size() == 0) {
+			
+			throw new RuntimeException("예외 발생 : 검색 결과가 없습니다.");
+			
+		}
+		
+		for(int i = 0; i < indexs.size(); i++) {
+			
+			int index = indexs.get(i);
+			
+			System.out.println((i + 1) + ". " + list.get(index));
+			
+		}
+		
+	}
 }
