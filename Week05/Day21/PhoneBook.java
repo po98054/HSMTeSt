@@ -65,7 +65,8 @@ public class PhoneBook {
 	}
 
 
-
+    // 해당 검색을 한 회원의 전화번호를 모두 다 출력하는 경우
+	
 	public void printPhoneNumbers() {
 		
 		for(int i = 0; i < pnlist.size(); i++) {

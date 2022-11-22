@@ -247,6 +247,10 @@ public class PhoneBookMain {
 		
 		String name = sc.nextLine();
 		
+		// 전화번호부에는 한사람에 해당되는 전화번호가 여러개 있을 수 있다. 그러기에 여러 전화번호들을 모아놓은 공간을 ArrayList로 만들었다.
+		
+		// 그리고 contains로 한 이유는 정확히 일치하는 전화번호를 찾는 게 아니고 한글자라도 포함이 된 사람의 연락처 목록을 확인하는게 조건이라서 한것입니다.
+		
 		ArrayList<Integer> indexs = searchPhoneBook(list, (p) -> p.getName().contains(name));
 		
 		System.out.println("-------------------");
@@ -354,6 +358,8 @@ public class PhoneBookMain {
 			sc.nextLine();
 			
 			ArrayList<PhoneNumber> pnlist = inputPhoneNumbers();
+			
+			// 회원이 새로이 추가한 전화번호 목록들을 일시에 추가를 한다.
 			
 			pb.getPnlist().addAll(pnlist);
 			
@@ -464,6 +470,8 @@ public class PhoneBookMain {
 			throw new RuntimeException("예외 발생 : 검색 결과가 없습니다.");
 			
 		}
+		
+		// 검색한 사람이 등록을 한 전화번호를 모두 다 출력하는 경우
 		
 		for(int i = 0; i < indexs.size(); i++) {
 			
