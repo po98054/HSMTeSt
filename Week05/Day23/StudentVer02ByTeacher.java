@@ -1,15 +1,15 @@
-package Day22;
+package Day23;
 
 import lombok.Data;
 
 @Data
-public class StudentVer01ByTeacher {
+public class StudentVer02ByTeacher {
 	
 	private String name;
 	
 	private String birthday;
 
-	public StudentVer01ByTeacher(String name, String birthday) {
+	public StudentVer02ByTeacher(String name, String birthday) {
 		
 		this.name = name;
 		
@@ -17,7 +17,7 @@ public class StudentVer01ByTeacher {
 		
 	}
 
-	public StudentVer01ByTeacher(StudentVer01ByTeacher std) {
+	public StudentVer02ByTeacher(StudentVer02ByTeacher std) {
 		
 		this.name = std.name;
 		

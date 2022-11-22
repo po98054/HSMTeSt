@@ -1,10 +1,10 @@
-package Day22;
+package Day23;
 
 import java.util.ArrayList;
 
 import java.util.Scanner;
 
-public class AttendanceMainVer01ByTeacher {
+public class AttendanceMainVer02ByTeacher {
 	
 	static Scanner sc = new Scanner(System.in);
 	
@@ -12,7 +12,7 @@ public class AttendanceMainVer01ByTeacher {
 		
 		int menu = -1;
 		
-		AttendanceVer01ByTeacher attendance = new AttendanceVer01ByTeacher();
+		AttendanceVer02ByTeacher attendance = new AttendanceVer02ByTeacher();
 		
 		do {
 			
@@ -61,11 +61,11 @@ public class AttendanceMainVer01ByTeacher {
 	}
 	
 
-	private static void runMenu(int menu, AttendanceVer01ByTeacher attendance) {
+	private static void runMenu(int menu, AttendanceVer02ByTeacher attendance) {
 		
-		ArrayList<StudentVer01ByTeacher> stds = attendance.getStds();
+		ArrayList<StudentVer02ByTeacher> stds = attendance.getStds();
 		
-		ArrayList<LogVer01ByTeacher> logs = attendance.getLogs();
+		ArrayList<LogVer02ByTeacher> logs = attendance.getLogs();
 		
 		switch(menu) {
 		
@@ -153,7 +153,7 @@ public class AttendanceMainVer01ByTeacher {
 		
 	}
 	
-	private static void managementStudents(ArrayList<StudentVer01ByTeacher> stds) {
+	private static void managementStudents(ArrayList<StudentVer02ByTeacher> stds) {
 		
 		printSubMenu(1);
 		
@@ -201,7 +201,7 @@ public class AttendanceMainVer01ByTeacher {
 		
 	}
 
-	public static void addStudent(ArrayList<StudentVer01ByTeacher> stds) {
+	public static void addStudent(ArrayList<StudentVer02ByTeacher> stds) {
 		
 		if(stds == null) {
 			
@@ -217,7 +217,7 @@ public class AttendanceMainVer01ByTeacher {
 		
 		String birthday = sc.nextLine();
 		
-		StudentVer01ByTeacher std = new StudentVer01ByTeacher(name, birthday);
+		StudentVer02ByTeacher std = new StudentVer02ByTeacher(name, birthday);
 		
 		if(stds.indexOf(std) != -1) {
 			
@@ -233,7 +233,7 @@ public class AttendanceMainVer01ByTeacher {
 		
 	}
 	
-	public static void updateStudent(ArrayList<StudentVer01ByTeacher> stds) {
+	public static void updateStudent(ArrayList<StudentVer02ByTeacher> stds) {
 		
 		if(stds == null) {
 			
@@ -249,7 +249,7 @@ public class AttendanceMainVer01ByTeacher {
 		
 		String birthday = sc.nextLine();
 		
-		StudentVer01ByTeacher std = new StudentVer01ByTeacher(name, birthday);
+		StudentVer02ByTeacher std = new StudentVer02ByTeacher(name, birthday);
 		
 		int index = stds.indexOf(std);
 		
@@ -271,7 +271,7 @@ public class AttendanceMainVer01ByTeacher {
 		
 		birthday = sc.nextLine();
 		
-		std = new StudentVer01ByTeacher(name, birthday);
+		std = new StudentVer02ByTeacher(name, birthday);
 		
 		stds.set(index, std);
 		
@@ -280,7 +280,7 @@ public class AttendanceMainVer01ByTeacher {
 	}
 	
 
-	private static void deleteStudent(ArrayList<StudentVer01ByTeacher> stds) {
+	private static void deleteStudent(ArrayList<StudentVer02ByTeacher> stds) {
 		
 		if(stds == null) {
 			
@@ -296,7 +296,7 @@ public class AttendanceMainVer01ByTeacher {
 		
 		String birthday = sc.nextLine();
 		
-		StudentVer01ByTeacher std = new StudentVer01ByTeacher(name, birthday);
+		StudentVer02ByTeacher std = new StudentVer02ByTeacher(name, birthday);
 		
 		int index = stds.indexOf(std);
 		
