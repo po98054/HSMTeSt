@@ -11,18 +11,21 @@ public class LogVer02ByTeacher {
 	
 	private String Date;
 
-	public LogVer02ByTeacher(ArrayList<StudentVer02ByTeacher> stds, String date) {
+	public LogVer02ByTeacher(ArrayList<StudentLogVer02ByTeacher> stdLogs, String date) {
 		
-		for(StudentVer02ByTeacher std : stds) {
-			
-			StudentLogVer02ByTeacher slog = new StudentLogVer02ByTeacher(std, null);
-			
-			slogs.add(slog);
-			
-		}
+		this.slogs = stdLogs;
 		
 		this.Date = date;
 		
 	}
+
+	@Override
+	public String toString() {
+		
+		return "날짜 : " + Date + " " + " 학생 출석 여부 : " + slogs;
+		
+	}
+	
+	
 	
 }

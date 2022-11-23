@@ -24,5 +24,14 @@ public class StudentVer02ByTeacher {
 		this.birthday = std.birthday;
 		
 	}
+
+	@Override
+	public String toString() {
+		
+		return name + "의 생일은 " + birthday + "입니다.";
+		
+	}
+	
+	
 	
 }

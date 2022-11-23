@@ -24,5 +24,14 @@ public class StudentLogVer02ByTeacher {
 		this.state = state;
 		
 	}
+
+	@Override
+	public String toString() {
+		
+		return std.getName() + "의 생일은 " + std.getBirthday() + "이며 " + std.getName() + "의 출석 여부는 " + state + "입니다.";
+		
+	}
+	
+	
 	
 }
