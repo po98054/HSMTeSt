@@ -7,7 +7,7 @@ import java.io.FileOutputStream;
 
 import java.io.IOException;
 
-public class FileStream {
+public class FileStream01 {
 	
 	public static void main(String[] args) {
 		
