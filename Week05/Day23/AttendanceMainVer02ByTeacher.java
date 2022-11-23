@@ -81,7 +81,7 @@ public class AttendanceMainVer02ByTeacher {
 			
 			System.out.println("--------------------------");
 			
-			//managementLogs(logs, stds);
+			managementLogs(logs, stds);
 			
 			break;
 			
@@ -201,7 +201,7 @@ public class AttendanceMainVer02ByTeacher {
 		
 	}
 
-	public static void addStudent(ArrayList<StudentVer02ByTeacher> stds) {
+	private static void addStudent(ArrayList<StudentVer02ByTeacher> stds) {
 		
 		if(stds == null) {
 			
@@ -233,7 +233,7 @@ public class AttendanceMainVer02ByTeacher {
 		
 	}
 	
-	public static void updateStudent(ArrayList<StudentVer02ByTeacher> stds) {
+	private static void updateStudent(ArrayList<StudentVer02ByTeacher> stds) {
 		
 		if(stds == null) {
 			
@@ -313,6 +313,78 @@ public class AttendanceMainVer02ByTeacher {
 		printStr("학생 정보를 삭제했습니다.");
 		
 		System.out.println(stds);
+		
+	}
+	
+	private static void managementLogs(ArrayList<LogVer02ByTeacher> logs, ArrayList<StudentVer02ByTeacher> stds) {
+		
+		printSubMenu(2);
+		
+		int subMenu = sc.nextInt();
+		
+		switch(subMenu) {
+		
+		case 1 :
+			
+			printBar();
+			
+			checkLog(stds, logs);
+			
+			break;
+			
+		case 2 :
+			
+			printBar();
+			
+			System.out.println("출석 체크 개별 기능");
+			
+			break;
+			
+		case 3 :
+			
+			printBar();
+			
+			System.out.println("출석 체크 날짜별 기능");
+			
+			break;
+			
+		case 4 :
+			
+			printBar();
+			
+			System.out.println("출석 수정 기능");
+			
+			break;
+			
+		case 5 :
+			
+			printBar();
+			
+			System.out.println("출석 삭제 기능");
+			
+			break;
+			
+		case 6 :
+			
+			printBar();
+			
+			System.out.println("취소합니다.");
+			
+			break;
+			
+		default :
+			
+			printStr("출석 서브 메뉴를 잘 못 입력했습니다.");
+			
+			break;
+		
+		}
+		
+	}
+
+	private static void checkLog(ArrayList<StudentVer02ByTeacher> stds, ArrayList<LogVer02ByTeacher> logs) {
+		
+		
 		
 	}
 
