@@ -22,6 +22,8 @@ public class ForAndIf01 {
 		
 		int min = 0;
 		
+		int mul = 1;
+		
 		if(num >= 0) {
 			
 			System.out.println("입력한 " + num + "는 양의 정수 입니다.");
@@ -32,9 +34,19 @@ public class ForAndIf01 {
 				
 		    }
 			
+			for(int i = 1; i <= num; i++) {
+				
+				mul = mul * i;
+				
+			}
+			
 			System.out.println("--------------------------------------------");
 			
 			System.out.println("0 부터 " + num + "까지의 합계는 " + sum + "입니다.");
+			
+			System.out.println("--------------------------------------------");
+			
+			System.out.println("1 부터 " + num + "까지의 곱셈은 " + mul + "입니다.");
 			
 			
 		} else if(num < 0) {
@@ -52,6 +64,8 @@ public class ForAndIf01 {
 			System.out.println("0 부터 " + num + "까지의 차는 " + (min * -1) + "입니다.");
 			
 		}
+		
+		sc.close();
 			
 	}
 		

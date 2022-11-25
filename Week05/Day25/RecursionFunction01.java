@@ -22,6 +22,8 @@ public class RecursionFunction01 {
 		
 		System.out.println(num + "! 의 답은 : " + factorial(num));
 		
+		sc.close();
+		
 	}
 	
 	public static void print(int num) {
@@ -49,5 +51,6 @@ public class RecursionFunction01 {
 		return num * factorial(num - 1);
 		
 	}
+	
 
 }

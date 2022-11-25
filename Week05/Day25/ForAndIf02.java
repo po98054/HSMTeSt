@@ -52,6 +52,8 @@ public class ForAndIf02 {
 			
 		}
 		
+		sc.close();
+		
 	}
 	
 }
