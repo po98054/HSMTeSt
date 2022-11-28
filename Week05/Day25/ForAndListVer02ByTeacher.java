@@ -30,7 +30,7 @@ public class ForAndListVer02ByTeacher {
 				
 			}
 			
-			System.out.print("더 하시겠습니까? (y/n) : ");
+			System.out.print("계속 하시겠습니까? (y/n) ");
 			
 		} while(!sc.next().equals("n"));
 		
@@ -93,6 +93,7 @@ public class ForAndListVer02ByTeacher {
 		default :
 			
 			System.out.println("무승부");
+			
 			
 			break;
 		
