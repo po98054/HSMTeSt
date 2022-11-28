@@ -24,7 +24,7 @@ public class ServerMainVer01 {
 			
 			// 바인드 (포트 번호와 연결)
 			
-			serverSocket.bind(new InetSocketAddress(5006));
+			serverSocket.bind(new InetSocketAddress(5007));
 			
 			// 대기 -> 허용 요청 -> 소켓 생성
 			

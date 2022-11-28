@@ -22,7 +22,7 @@ public class ClientMainVer01 {
 			
 			socket = new Socket();
 			
-			socket.connect(new InetSocketAddress(5006));
+			socket.connect(new InetSocketAddress(5007));
 			
 			System.out.println("연결이 완료되었습니다. ");
 			
