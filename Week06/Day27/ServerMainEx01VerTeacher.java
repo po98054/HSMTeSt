@@ -90,17 +90,27 @@ public class ServerMainEx01VerTeacher {
 							
 							// byte[] 에 있는 byte들을 문자열로 변환, 0번지 ~ readCount 개수만큼 변환, 인코딩은 UTF-8(한글 안 깨짐)
 							
-							String str = new String(bytes, 0, readCount, "UTF-8");
-							
 							if(readCount == -1) {
 								
 								break;
 								
 							}
 							
+							String str = new String(bytes, 0, readCount, "UTF-8");
+							
 							// 다른 클라이언트들에게 str 전송
 							
-							System.out.println("출력 결과 : " + str);
+							if(clientList.size() == 0) {
+								
+								continue;
+								
+							}
+							
+							for (ClientVer03 temp : clientList) {
+								
+								temp.send(str);
+								
+							}
 							
 						}
 						
@@ -108,13 +118,17 @@ public class ServerMainEx01VerTeacher {
 						
 				} catch(Exception e) {
 					
+					e.printStackTrace();
+						
+				} finally {
+					
 					// 읽기 위해서 대기하다가 예외가 발생하면 socket 닫기
 					
 					// => 클라이언트에서 접속을 종료함
 					
 					try {
 					
-					if(socket != null && socket.isClosed()) {
+					if(socket != null && !socket.isClosed()) {
 						
 							socket.close();
 							
@@ -131,14 +145,14 @@ public class ServerMainEx01VerTeacher {
 							System.out.println("클라이언트 소켓 닫기 실패");
 							
 					}
-						
+					
 				}
 				
-		});
+			});
 			
 			t.start();
 			
-	}
+		}
 		
 		public void send(String data) {
 			
