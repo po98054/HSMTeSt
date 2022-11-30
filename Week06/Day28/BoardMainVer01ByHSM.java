@@ -14,13 +14,15 @@ public class BoardMainVer01ByHSM {
 		
 		ArrayList<BoardVer01ByHSM> boardList = new ArrayList<BoardVer01ByHSM>();
 		
+		ArrayList<CateBoardVer01ByHSM> cateList = new ArrayList<CateBoardVer01ByHSM>();
+		
 		do {
 			
 			printMainMenu();
 			
 			menu = sc.nextInt();
 			
-			runMainMenu(menu, userList, boardList);
+			runMainMenu(menu, userList, boardList, cateList);
 			
 		} while(menu != 3);
 		
@@ -42,7 +44,7 @@ public class BoardMainVer01ByHSM {
 		
 	}
 	
-	public static void runMainMenu(int menu, ArrayList<UserVer01ByHSM> userList, ArrayList<BoardVer01ByHSM> boardList) {
+	public static void runMainMenu(int menu, ArrayList<UserVer01ByHSM> userList, ArrayList<BoardVer01ByHSM> boardList, ArrayList<CateBoardVer01ByHSM> cateList) {
 		
 		switch(menu) {
 		
@@ -60,7 +62,7 @@ public class BoardMainVer01ByHSM {
 			
 			System.out.println("---------------------------");
 			
-			Login(userList, boardList);
+			Login(userList, boardList, cateList);
 			
 			System.out.println("---------------------------");
 			
@@ -112,7 +114,7 @@ public class BoardMainVer01ByHSM {
 		
 	}
 	
-	public static void Login(ArrayList<UserVer01ByHSM> userList, ArrayList<BoardVer01ByHSM> boardList) {
+	public static void Login(ArrayList<UserVer01ByHSM> userList, ArrayList<BoardVer01ByHSM> boardList, ArrayList<CateBoardVer01ByHSM> cateList) {
 		
 		System.out.print("아이디를 입력하세요 : ");
 		
@@ -146,7 +148,7 @@ public class BoardMainVer01ByHSM {
 			
 			System.out.println("---------------------------");
 			
-			printCateMenu();
+			insertCate(cateList);
 			
 			return;
 			
@@ -163,7 +165,7 @@ public class BoardMainVer01ByHSM {
 		
 		int subMenu = sc.nextInt();
 		
-		runSubMenu(boardList, subMenu);
+		runSubMenu(boardList, subMenu, cateList);
 		
 	}
 
@@ -177,13 +179,15 @@ public class BoardMainVer01ByHSM {
 		
 		System.out.println("3. 게시글 삭제");
 		
+		System.out.println("4. 카데고리 게시판");
+		
 		System.out.println("----------------------------------------");
 		
 		System.out.print("서브 메뉴를 입력하세요 : ");
 		
 	}
 	
-	public static void runSubMenu(ArrayList<BoardVer01ByHSM> boardList, int subMenu) {
+	public static void runSubMenu(ArrayList<BoardVer01ByHSM> boardList, int subMenu, ArrayList<CateBoardVer01ByHSM> cateList) {
 		
 		switch(subMenu) {
 		
@@ -289,6 +293,12 @@ public class BoardMainVer01ByHSM {
 			
 			break;
 			
+		case 4 :
+			
+			printCateMenu(cateList);
+			
+			break;
+			
 		default :
 			
 			System.out.println("---------------------------");
@@ -303,9 +313,25 @@ public class BoardMainVer01ByHSM {
 		
 	}
 
-	public static void printCateMenu() {
+	public static void printCateMenu(ArrayList<CateBoardVer01ByHSM> cateList) {
 		
 		System.out.println("------------카데고리 메뉴-----------------");
+		
+		System.out.println(cateList.toString());
+		
+		System.out.println("---------------------------------------");
+		
+	}
+	
+	public static void insertCate(ArrayList<CateBoardVer01ByHSM> cateList) {
+		
+		System.out.print("게시판 이름을 입력하세요 : ");
+		
+		String name = sc.nextLine();
+		
+		CateBoardVer01ByHSM cate = new CateBoardVer01ByHSM(name);
+		
+		cateList.add(cate);
 		
 	}
 	
