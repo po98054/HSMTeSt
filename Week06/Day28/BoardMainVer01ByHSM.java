@@ -148,8 +148,6 @@ public class BoardMainVer01ByHSM {
 			
 			System.out.println("---------------------------");
 			
-			insertCate(cateList);
-			
 			return;
 			
 			
@@ -165,7 +163,7 @@ public class BoardMainVer01ByHSM {
 		
 		int subMenu = sc.nextInt();
 		
-		runSubMenu(boardList, subMenu, cateList);
+		runSubMenu(boardList, subMenu);
 		
 	}
 
@@ -179,7 +177,7 @@ public class BoardMainVer01ByHSM {
 		
 		System.out.println("3. 게시글 삭제");
 		
-		System.out.println("4. 카데고리 게시판");
+		System.out.println("4. 게시글 목록");
 		
 		System.out.println("----------------------------------------");
 		
@@ -187,7 +185,7 @@ public class BoardMainVer01ByHSM {
 		
 	}
 	
-	public static void runSubMenu(ArrayList<BoardVer01ByHSM> boardList, int subMenu, ArrayList<CateBoardVer01ByHSM> cateList) {
+	public static void runSubMenu(ArrayList<BoardVer01ByHSM> boardList, int subMenu) {
 		
 		switch(subMenu) {
 		
@@ -295,7 +293,17 @@ public class BoardMainVer01ByHSM {
 			
 		case 4 :
 			
-			printCateMenu(cateList);
+			int BoardSubMenu = -1;
+			
+			do {
+				
+				printboardSubMenu();
+				
+				BoardSubMenu = sc.nextInt();
+				
+				runBoardSubMenu(BoardSubMenu, boardList);
+				
+			} while(BoardSubMenu != 3);
 			
 			break;
 			
@@ -313,25 +321,43 @@ public class BoardMainVer01ByHSM {
 		
 	}
 
-	public static void printCateMenu(ArrayList<CateBoardVer01ByHSM> cateList) {
+	public static void printboardSubMenu() {
 		
-		System.out.println("------------카데고리 메뉴-----------------");
+		System.out.println("------------게시글 출력 메뉴-----------------");
 		
-		System.out.println(cateList.toString());
+		System.out.println("1. 게시글 검색(검색어)");
+		
+		System.out.println("2. 게시글 검색(번호)");
 		
 		System.out.println("---------------------------------------");
 		
 	}
 	
-	public static void insertCate(ArrayList<CateBoardVer01ByHSM> cateList) {
+	public static void runBoardSubMenu(int BoardSubMenu, ArrayList<BoardVer01ByHSM> boardList) {
 		
-		System.out.print("게시판 이름을 입력하세요 : ");
+		switch(BoardSubMenu) {
 		
-		String name = sc.nextLine();
+		case 1 : 
+			
+			break;
 		
-		CateBoardVer01ByHSM cate = new CateBoardVer01ByHSM(name);
+		case 2 :
+			
+			System.out.print("검색할 번호를 입력하세요 : ");
+			
+			int num = sc.nextInt();
+			
+			int index = boardList.indexOf(new BoardVer01ByHSM(num));
+			
+			System.out.println(boardList.get(index));
+			
+			break;
+			
+		default :
+			
+			break;
 		
-		cateList.add(cate);
+		}
 		
 	}
 	
