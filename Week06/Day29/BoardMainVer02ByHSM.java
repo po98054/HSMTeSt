@@ -30,7 +30,7 @@ public class BoardMainVer02ByHSM {
 	
 	private static Scanner sc = new Scanner(System.in);
 	
-	private static List<BoardVer02ByHSM> boardList = new ArrayList<BoardVer02ByHSM>();
+	private static ArrayList<BoardVer02ByHSM> boardList = new ArrayList<BoardVer02ByHSM>();
 	
 	public static void main(String [] args) {
 		
