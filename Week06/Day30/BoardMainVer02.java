@@ -34,8 +34,6 @@ public class BoardMainVer02 {
 	
 	private static ArrayList<CommentVer01> commentList = new ArrayList<CommentVer01>();
 	
-	private static CommentVer01 comment;
-	
 	public static void main(String [] args) {
 		
 		// 메뉴를 출력하고,
@@ -358,7 +356,7 @@ public class BoardMainVer02 {
 			
 			subMenu = sc.nextInt();
 			
-			runPrintSubMenu(subMenu);
+			runPrintSubMenu(subMenu, num);
 			
 		} while(subMenu != 3);
 		
@@ -380,7 +378,7 @@ public class BoardMainVer02 {
 		
 	}
 	
-	public static void runPrintSubMenu(int subMenu) {
+	public static void runPrintSubMenu(int subMenu, int boardNum) {
 		
 		switch(subMenu) {
 		
@@ -388,7 +386,7 @@ public class BoardMainVer02 {
 			
 			System.out.println("---------------------------------------");
 			
-			insertCommentList();
+			insertCommentList(boardNum);
 			
 			System.out.println("---------------------------------------");
 			
@@ -398,7 +396,7 @@ public class BoardMainVer02 {
 			
 			System.out.println("---------------------------------------");
 			
-			System.out.println("댓글 확인 하는 기능");
+			printCommentList(boardNum);
 			
 			System.out.println("---------------------------------------");
 			
@@ -428,21 +426,15 @@ public class BoardMainVer02 {
 
 	}
 	
-	public static boolean insertComment() {
+	public static boolean insertComment(CommentVer01 comment) {
 		
-		int num = inputBoardNum();
+		int index = commentList.indexOf(comment);
 		
-		sc.nextLine();
-		
-		System.out.print("댓글 내용을 입력하세요 : ");
-		
-		String content = sc.nextLine();
-		
-		System.out.print("댓글의 작성자를 입력하세요 : ");
-		
-		String writer = sc.nextLine();
-		
-		comment = new CommentVer01(num, content, writer);
+		if(index != -1) {
+			
+			return false;
+			
+		}
 		
 		commentList.add(comment);
 		
@@ -450,25 +442,73 @@ public class BoardMainVer02 {
 		
 	}
 	
-	public static void insertCommentList() {
+	public static void insertCommentList(int boardNum) {
 		
-		if(insertComment()) {
+		System.out.println("-----------------------------");
+		
+		int num = inputBoardNum();
+		
+		sc.nextLine();
+		
+		System.out.print("댓글 정보를 입력하세요 : ");
+		
+		String content = sc.nextLine();
+		
+		System.out.print("작성자를 입력하세요 : ");
+		
+		String writer = sc.nextLine();
+		
+		CommentVer01 comment = new CommentVer01(num, content, writer, boardNum);
+		
+		if(insertComment(comment)) {
 			
-			System.out.println("-----------------------------");
+			System.out.println("-------------------------------------------");
 			
-			System.out.println("성공적으로 댓글이 등록이 되었습니다.");
+			System.out.println("성공적으로 댓글이 추가가 되었습니다.");
 			
-			System.out.println("------------------------------");
+			System.out.println("----------------------------------------------");
+			
+			return;
 			
 		} else {
 			
-			System.out.println("-----------------------------");
+			System.out.println("-------------------------------------------");
 			
-			System.out.println("댓글 등록이 실패하였습니다.");
+			System.out.println("이미 등록된 댓글 번호입니다.");
 			
-			System.out.println("------------------------------");
+			System.out.println("----------------------------------------------");
+			
+			return;
 			
 		}
+		
+	}
+	
+	public static void printCommentList(int boardNum) {
+		
+		if(commentList.size() == 0) {
+			
+			System.out.println("---------------------------------------");
+			
+			System.out.println("등록된 댓글이 없습니다.");
+			
+			System.out.println("-----------------------------------------");
+			
+			return;
+			
+		}
+		
+	   // int count = 0;
+	    
+	    commentList.forEach(c -> { if(c.getBoardNum() == boardNum) {
+	    	
+	    	System.out.println(c);
+	    	
+	    	//count = count + 1;
+	    	
+	    	}
+	    	
+	    });
 		
 	}
 	
