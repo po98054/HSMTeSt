@@ -498,13 +498,9 @@ public class BoardMainVer02 {
 			
 		}
 		
-	   // int count = 0;
-	    
 	    commentList.forEach(c -> { if(c.getBoardNum() == boardNum) {
 	    	
 	    	System.out.println(c);
-	    	
-	    	//count = count + 1;
 	    	
 	    	}
 	    	
