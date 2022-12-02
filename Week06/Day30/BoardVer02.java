@@ -13,7 +13,7 @@ import lombok.Data;
 // 생성자 : 생성자(번호), 생성자(번호, 제목, 내용, 작성자)
 
 @Data
-public class BoardVer02ByHSM {
+public class BoardVer02 {
 	
 	private int num;
 	
@@ -23,13 +23,13 @@ public class BoardVer02ByHSM {
 	
 	private String writer;
 	
-	public BoardVer02ByHSM (int num) {
+	public BoardVer02 (int num) {
 		
 		this.num = num;
 		
 	}
 	
-	public BoardVer02ByHSM(int num, String title, String content, String writer) {
+	public BoardVer02(int num, String title, String content, String writer) {
 		
 		this.num = num;
 		
@@ -63,7 +63,7 @@ public class BoardVer02ByHSM {
 			
 			return false;
 		
-		BoardVer02ByHSM other = (BoardVer02ByHSM) obj;
+		BoardVer02 other = (BoardVer02) obj;
 		
 		if (num != other.num)
 			
@@ -99,6 +99,18 @@ public class BoardVer02ByHSM {
 		System.out.println("내용 : " + content);
 		
 		System.out.println("----------------------------------");
+		
+	}
+
+	public void update(int num, String title, String content, String writer) {
+		
+		this.num = num;
+		
+		this.title = title;
+		
+		this.content = content;
+		
+		this.writer = writer;
 		
 	}
 	
