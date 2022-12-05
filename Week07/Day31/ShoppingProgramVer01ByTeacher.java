@@ -6,7 +6,11 @@ public class ShoppingProgramVer01ByTeacher {
 	
 	private List<ProductVer01ByTeacher> productList = new ArrayList<ProductVer01ByTeacher>();
 	
+	private List<SalesVer01ByTeacher> salesList = new ArrayList<SalesVer01ByTeacher>();
+	
 	private ProductControllerVer01ByTeacher productController = new ProductControllerVer01ByTeacher(productList);
+	
+	private SalesControllerVer01ByTeacher salesController = new SalesControllerVer01ByTeacher(salesList, productList);
 	
 	private Scanner sc = new Scanner(System.in);
 
@@ -91,7 +95,7 @@ public class ShoppingProgramVer01ByTeacher {
 		case 3 :
 	
 			System.out.println("--------------------------------");
-	
+			
 			productController.deleteProduct();
 	
 			System.out.println("--------------------------------");
@@ -102,7 +106,7 @@ public class ShoppingProgramVer01ByTeacher {
 	
 			System.out.println("--------------------------------");
 	
-			productController.buy();
+			salesController.buy();
 	
 			System.out.println("--------------------------------");
 	
@@ -112,7 +116,7 @@ public class ShoppingProgramVer01ByTeacher {
 	
 			System.out.println("--------------------------------");
 	
-			productController.sel();
+			salesController.sel();
 	
 			System.out.println("--------------------------------");
 	

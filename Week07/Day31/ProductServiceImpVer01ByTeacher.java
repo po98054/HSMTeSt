@@ -80,6 +80,21 @@ public class ProductServiceImpVer01ByTeacher implements ProductServiceVer01ByTea
 		return true;
 		
 	}
+
+	@Override
+	public boolean deleteProduct(List<ProductVer01ByTeacher> productList, ProductVer01ByTeacher product) {
+		
+		// 매개변수 예외 체크
+		
+		if(productList == null || productList.size() == 0 || product == null) {
+			
+			return false;
+			
+		}
+		
+		return productList.remove(product);
+		
+	}
 	
 	@Override
 	public ProductVer01ByTeacher getProduct(List<ProductVer01ByTeacher> productList, int index) {
@@ -93,13 +108,6 @@ public class ProductServiceImpVer01ByTeacher implements ProductServiceVer01ByTea
 		}
 		
 		return productList.get(index);
-		
-	}
-
-	@Override
-	public boolean deleteProduct(List<ProductVer01ByTeacher> productList, ProductVer01ByTeacher product) {
-		
-		return false;
 		
 	}
 	

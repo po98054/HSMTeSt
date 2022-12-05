@@ -27,6 +27,20 @@ public class ProductVer01ByTeacher {
 		
 	}
 	
+	public ProductVer01ByTeacher(ProductVer01ByTeacher p) {
+		
+		this.type = p.type;
+		
+		this.title = p.title;
+		
+		this.amount = p.amount;
+		
+		this.buyPrice = p.buyPrice;
+		
+		this.sellPrice = p.sellPrice;
+		
+	}
+	
 	public void addAmount(int amount) {
 		
 		this.amount += amount;

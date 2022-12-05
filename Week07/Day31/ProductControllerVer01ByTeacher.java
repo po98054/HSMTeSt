@@ -52,10 +52,6 @@ public class ProductControllerVer01ByTeacher {
 		
 		int index = productList.indexOf(newProduct);
 		
-		ProductVer01ByTeacher Product = productService.getProduct(productList, index);
-		
-		System.out.println(Product + ".." + index);
-		
 		// 제품 정보 수정
 		
 		if(productService.updateProduct(productList, newProduct, index)) {
@@ -78,10 +74,38 @@ public class ProductControllerVer01ByTeacher {
 		
 	}
 	
-	public void deleteProduct() {}
-	
-	public void buy() {}
-	
-	public void sel() {}
+	public void deleteProduct() {
+		
+		// 삭제 할 제품 내용을 입력 (판매가, 구매가 0으로 입력)
+		
+		ProductVer01ByTeacher delectProduct = productService.inputProduct();
+				
+		// 삭제할 제품 정보를 가져옵니다.
+				
+		int index = productList.indexOf(delectProduct);
+		
+		ProductVer01ByTeacher product = productService.getProduct(productList, index);
+				
+		// 제품을 리스트에서 삭제
+				
+		if(productService.deleteProduct(productList, product)) {
+					
+			System.out.println("----------------------------------------");
+					
+			System.out.println("성공적으로 제품 정보가 삭제되었습니다.");
+					
+			System.out.println("----------------------------------------");
+					
+		} else {
+					
+			System.out.println("----------------------------------------");
+					
+			System.out.println("제품 정보가 삭제가 안되었습니다.");
+					
+			System.out.println("----------------------------------------");
+					
+		}
+		
+	}
 	
 }
