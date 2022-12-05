@@ -52,21 +52,7 @@ public class SalesControllerVer01ByTeacher {
 		
 		amount = type.equals("구매") ? amount : -amount;
 		
-		// 판매시 판매 수량은 재고량보다 클 수 없다.
-		
-		if(amount < 0 && product.getAmount() < -amount) {
-			
-			System.out.println("--------------------------");
-			
-			System.out.println(" 재고량이 부족합니다. ");
-			
-			System.out.println("--------------------------");
-			
-			return;
-			
-		}
-		
-		product.addAmount(amount);
+		productService.productStock(product, amount);
 		
 		// 매출 금액을 계산
 		

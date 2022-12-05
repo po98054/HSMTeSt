@@ -24,7 +24,7 @@ public interface ProductServiceVer01ByTeacher {
 	
 	// 제품 수량 변경 메소드 (매개 변수 : Product 제품 정보 amount 제품 수량(+면 제품을 구매 -면 제품을 판매)
 	
-	void productStock(ProductVer01ByTeacher product, int amount);
+	boolean productStock(ProductVer01ByTeacher product, int amount);
 	
 	// 제품 정보를 입력 받아 제품 객체를 반환하는 메소드 (리턴 타입 : product 입력 받은 정보로 만든 제품 객체)
 	

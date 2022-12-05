@@ -127,9 +127,25 @@ public class ProductServiceImpVer01ByTeacher implements ProductServiceVer01ByTea
 	}
 	
 	@Override
-	public void productStock(ProductVer01ByTeacher product, int amount) {
+	public boolean productStock(ProductVer01ByTeacher product, int amount) {
 		
+		// 판매시 판매 수량은 재고량보다 클 수 없다.
 		
+		if(amount < 0 && product.getAmount() < -amount) {
+					
+			System.out.println("--------------------------");
+					
+			System.out.println(" 재고량이 부족합니다. ");
+					
+			System.out.println("--------------------------");
+					
+			return false;
+					
+		}
+				
+		product.addAmount(amount);
+		
+		return true;
 		
 	}
 
