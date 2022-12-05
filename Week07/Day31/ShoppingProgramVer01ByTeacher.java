@@ -22,11 +22,19 @@ public class ShoppingProgramVer01ByTeacher {
 		
 		do {
 			
+			try {
+			
 			printMenu();
 			
 			menu = inputInt();
 			
 			exeMenu(menu);
+			
+			}catch(Exception e) {
+				
+				System.out.println(e.getMessage());
+				
+			}
 			
 		} while(menu != exit);
 		
@@ -106,7 +114,7 @@ public class ShoppingProgramVer01ByTeacher {
 	
 			System.out.println("--------------------------------");
 	
-			salesController.buy();
+			salesController.sales("구매");
 	
 			System.out.println("--------------------------------");
 	
@@ -116,7 +124,7 @@ public class ShoppingProgramVer01ByTeacher {
 	
 			System.out.println("--------------------------------");
 	
-			salesController.sel();
+			salesController.sales("판매");
 	
 			System.out.println("--------------------------------");
 	
@@ -126,7 +134,7 @@ public class ShoppingProgramVer01ByTeacher {
 	
 			System.out.println("--------------------------------");
 	
-			System.out.println(" 매출액을 확인하는 기능 ");
+			salesController.print();
 	
 			System.out.println("--------------------------------");
 	

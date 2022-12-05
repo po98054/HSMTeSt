@@ -112,6 +112,21 @@ public class ProductServiceImpVer01ByTeacher implements ProductServiceVer01ByTea
 	}
 	
 	@Override
+	public ProductVer01ByTeacher getProduct(List<ProductVer01ByTeacher> productList, ProductVer01ByTeacher product) {
+		
+		int index = productList.indexOf(product);
+		
+		if(index < 0) {
+			
+			return null;
+			
+		}
+		
+		return productList.get(index);
+		
+	}
+	
+	@Override
 	public void productStock(ProductVer01ByTeacher product, int amount) {
 		
 		
