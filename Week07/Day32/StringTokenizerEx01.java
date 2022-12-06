@@ -10,7 +10,7 @@ public class StringTokenizerEx01 {
 		
 		String [] array = new String[3];
 		
-		array = str.split(",");
+		array = str.split(",."); // 정규 표현식으로 적용 ,와 문자 하나(.)를 구분자로 본다.
 		
 		for(String temp : array) {
 			
@@ -20,7 +20,7 @@ public class StringTokenizerEx01 {
 		
 		System.out.println("-------------------------------");
 		
-		StringTokenizer st = new StringTokenizer(str, ",");
+		StringTokenizer st = new StringTokenizer(str, ".,");
 		
 		System.out.println("개수 : " + st.countTokens());
 		
