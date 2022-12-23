@@ -114,5 +114,37 @@ public class UniversityDBVer01ByHSM {
 		}
 		
 	}
+	
+	private void updateStudent(String st_num, String st_name, int st_semester, String st_state, String st_pr_num) throws SQLException {
+		
+		String sql = "update student set st_name = ?, st_ semester = ?, st_state = ?, st_pr_num = ? where st_num = ?";
+		
+		pstmt = con.prepareStatement(sql);
+		
+		pstmt.setString(1, st_name);
+		
+		pstmt.setInt(2, st_semester);
+		
+		pstmt.setString(3, st_state);
+		
+		pstmt.setString(4, st_pr_num);
+		
+		pstmt.setString(5, st_num);
+		
+		int count = pstmt.executeUpdate();
+		
+		if(count == 0) {
+			
+			System.out.println("수정 실패");
+			
+		} else {
+			
+			System.out.println("수정 성공");
+			
+		}
+		
+		System.out.println(count);
+		
+	}
 
 }
