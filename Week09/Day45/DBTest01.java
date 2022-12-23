@@ -14,7 +14,7 @@ public class DBTest01 {
 	
 	static PreparedStatement pstmt = null;
 	
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception {
 		
 		Connection con = null;
 		
@@ -32,15 +32,13 @@ public class DBTest01 {
 			
 			stmt = con.createStatement();
 			
-			insertStudent(con, "2022160004", "박수홍", 1, "재학", "2022160002");
+			deleteStudent(con, "2022160009");
 			
 			list = selectAllStudent(con);
 			
 			System.out.println(list);
 			
 		} catch (SQLException e) {
-			
-			
 			
 			e.printStackTrace();
 			
@@ -156,6 +154,54 @@ public class DBTest01 {
 		System.out.println(count);
 		
 	}
+	
+	/*private static void updateStudent(Connection con, String st_num, String st_name) throws SQLException{
+		
+		String sql = "update student set st_name = ? where st_num = ?";
+		
+		pstmt = con.prepareStatement(sql);
+		
+		pstmt.setString(1, st_name); // (?의 순서, 넣고 싶은 값);
+		
+		pstmt.setString(2, st_num);
+		
+		int count = pstmt.executeUpdate();
+		
+		if(count == 0) {
+			
+			System.out.println("수정 실패");
+			
+		} else {
+			
+			System.out.println("수정 성공");
+			
+		}
+		
+		System.out.println(count);
+		
+	}*/
+	
+	private static void deleteStudent(Connection con, String st_num) throws SQLException{
+		
+		String sql = "delete from student where st_num = ?";
+		
+		pstmt = con.prepareStatement(sql);
+		
+		pstmt.setString(1, st_num);
+		
+		int count = pstmt.executeUpdate();
+		
+		if(count == 0) {
+			
+			System.out.println("삭제 실패");
+			
+		} else {
+			
+			System.out.println("삭제 성공");
+			
+		}
+		
+	}
 		
 }
 
@@ -183,6 +229,12 @@ class Student {
 		this.st_state = st_state;
 		
 		this.st_pr_num = st_pr_num;
+		
+	}
+	
+	public Student(String st_num) {
+		
+		this.st_num = st_num;
 		
 	}
 
