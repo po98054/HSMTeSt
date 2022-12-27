@@ -192,10 +192,6 @@ public class CourseServiceImpVer01ByTeacher implements CourseServiceVer01ByTeach
 		
 		String co_st_num = sc.nextLine();
 		
-		System.out.print("타입(학점, 패스) : ");
-		
-		String co_type = sc.nextLine();
-		
 		LectureVer01ByTeacher lec = courseDao.selectLectureByName(le_name, le_class, le_year, le_term);
 		
 		if(lec == null) {
