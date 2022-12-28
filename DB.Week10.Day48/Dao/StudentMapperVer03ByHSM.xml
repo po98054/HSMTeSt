@@ -20,7 +20,7 @@
 	
 	<select id = "selectAllStudent" resultType = "Vo.StudentVoVer02ByTeacher">
 	
-		select * from student
+		select st_num, st_name from student
 	
 	</select>
 	
