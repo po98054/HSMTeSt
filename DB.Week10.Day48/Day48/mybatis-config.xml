@@ -4,6 +4,12 @@
 
 <configuration>
 
+  <typeAliases>
+  
+  	<typeAlias type="Vo.StudentVoVer02ByTeacher" alias="StudentVo"/>
+  
+  </typeAliases>
+
   <environments default="development">
   
     <environment id="development">
@@ -28,9 +34,11 @@
   
   <mappers>
   
-   <mapper resource = "Dao/StudentMapperVer02ByTeacher.xml"/>
+   <mapper resource = "Dao/StudentMapperVer02ByTeacher.xml"/> 
    
-   <mapper resource = "Dao/StudentMapperVer03ByHSM.xml"/>
+   <mapper resource = "Dao/StudentMapperVer03ByHSM.xml"/> 
+   
+   <mapper resource = "Dao/StudentMapperVer04ByTeacher.xml"/>
     
   </mappers>
   
