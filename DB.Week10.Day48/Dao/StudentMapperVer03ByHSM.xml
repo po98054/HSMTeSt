@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="Dao.StudentDaoVer03ByHSM">
+
+	<insert id="insertStudent">
+	
+		insert into student(st_num, st_name, st_semester, st_state, st_pr_num) 
+		
+		values(#{st_num}, #{st_name}, #{st_semester}, #{st_state}, #{st_pr_num})
+	
+	</insert>
+	
+	<update id="updateStudent">
+	
+		update student set st_name = #{st_name}, st_semester = #{st_semester}, st_state = #{st_state}, st_pr_num = #{st_pr_num} where st_num = #{st_num}
+	
+	</update>
+	
+	<select id = "selectAllStudent" resultType = "Vo.StudentVoVer02ByTeacher">
+	
+		select * from student
+	
+	</select>
+	
+</mapper>

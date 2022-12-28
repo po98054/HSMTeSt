@@ -29,6 +29,8 @@
   <mappers>
   
    <mapper resource = "Dao/StudentMapperVer02ByTeacher.xml"/>
+   
+   <mapper resource = "Dao/StudentMapperVer03ByHSM.xml"/>
     
   </mappers>
   
